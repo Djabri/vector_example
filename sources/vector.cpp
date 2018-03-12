@@ -72,7 +72,17 @@ void vector_t::push_back(int value)
 	if ( size_ == capacity_)
 	{
 		capacity_ *= 2;
-		int memory = new int [ele
+		int memory = new int [capacity_];
+		for (size_t i = 0; i < capacity_; i++)
+		{
+			memory[i] = 0;
+		}
+		for (size_t i = 0; i < capacity_; i++)
+		{
+			elements_[i] = value;
+		}
+		
+		
 	}
 		
 }
