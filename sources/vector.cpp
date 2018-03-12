@@ -81,14 +81,20 @@ void vector_t::push_back(int value)
 		{
 			elements_[i] = value;
 		}
-		
-		
 	}
+	
+	memory[size_] = copacity_;
+	
 		
 }
 
 void vector_t::pop_back()
 {
+	if (size_ == 0)
+	{
+		return *this;
+	}
+	
 }
 
 int & vector_t::operator [](std::size_t index)
@@ -103,5 +109,5 @@ int vector_t::operator [](std::size_t index) const
 
 bool operator !=(vector_t const & lhs, vector_t const & rhs)
 {
-	return true;
+	return !(lhs == rhs);
 }
