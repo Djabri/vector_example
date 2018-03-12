@@ -40,11 +40,11 @@ bool vector_t::operator ==(vector_t const & other) const
 	{
 		if (elements_[i] == other.elements_[i])
 		{
-			return true;
+			return false;
 		}
 	}
 	
-	return false;
+	return true;
 }
 
 vector_t::~vector_t()
