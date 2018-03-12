@@ -3,7 +3,7 @@
 
 #include "vector.hpp"
 
-vector_t::vector_t()
+vector_t::vector_t() : elements_(nullptr), size_(0), capacity_(0)
 {
 }
 
@@ -13,6 +13,16 @@ vector_t::vector_t(vector_t const & other)
 
 vector_t & vector_t::operator =(vector_t const & other)
 {
+	delete[]elements_;
+	elements = new int [other.capacity];
+	
+	for (size_t i = 0; i < other.capacity; i++)
+	{
+		elememnts_[i] = other.elements_[i];
+	}
+	capacity_ = other.capacity_;
+	size_ = other.size_;
+	
 	return *this;
 }
 
@@ -27,16 +37,17 @@ vector_t::~vector_t()
 
 std::size_t vector_t::size() const
 {
-    return 0;
+    return size_;
 }
 
 std::size_t vector_t::capacity() const
 {
-    return 0;
+    return capacity_;
 }
 
 void vector_t::push_back(int value)
 {
+	
 }
 
 void vector_t::pop_back()
