@@ -21,17 +21,19 @@ vector_t::vector_t(vector_t const & other)
 
 vector_t & vector_t::operator =(vector_t const & other)
 {
-	delete[]elements_;
-	elements_ = new int [other.capacity_];
-	
-	for (size_t i = 0; i < other.capacity_; i++)
+	if (this != other)
 	{
-		elememnts_[i] = other.elements_[i];
+		delete[]elements_;
+		elements_ = new int [other.capacity_];
+
+		for (size_t i = 0; i < other.capacity_; i++)
+		{
+			elememnts_[i] = other.elements_[i];
+		}
+		capacity_ = other.capacity_;
+		size_ = other.size_;
 	}
-	capacity_ = other.capacity_;
-	size_ = other.size_;
-	
-	return *this;
+		return *this;
 }
 
 bool vector_t::operator ==(vector_t const & other) const
@@ -99,6 +101,18 @@ void vector_t::pop_back()
 		return *this;
 	}
 	
+	if (size_ < ( capacity_ / 4 ))
+	{
+		capacity = capacity / 2;
+		
+		int * elements = new int [capacity_];
+		for (int i = 0; i < size_; i++)
+			elements[i] = elements_[i];
+		
+		delete[]elements_;
+		
+		elements_ = elements;
+	}
 }
 
 int & vector_t::operator [](std::size_t index)
