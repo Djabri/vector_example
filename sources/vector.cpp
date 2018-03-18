@@ -89,7 +89,7 @@ void vector_t::push_back(int value)
 		}
 	}
 	
-	memory[size_] = copacity_;
+	memory[size_] = capacity_;
 	
 		
 }
