@@ -21,14 +21,14 @@ vector_t::vector_t(vector_t const & other)
 
 vector_t & vector_t::operator =(vector_t const & other)
 {
-	if (this != other)
+	if (this != &other)
 	{
 		delete[]elements_;
 		elements_ = new int [other.capacity_];
 
 		for (size_t i = 0; i < other.capacity_; i++)
 		{
-			elememnts_[i] = other.elements_[i];
+			elements_[i] = other.elements_[i];
 		}
 		capacity_ = other.capacity_;
 		size_ = other.size_;
@@ -51,9 +51,9 @@ bool vector_t::operator ==(vector_t const & other) const
 
 vector_t::~vector_t()
 {
-	if(elements != nullptr)
+	if(elements_ != nullptr)
 	{
-		delete[]elements;
+		delete[]elements_;
 	}
 }
 
@@ -78,7 +78,7 @@ void vector_t::push_back(int value)
 	if ( size_ == capacity_)
 	{
 		capacity_ *= 2;
-		int memory = new int [capacity_];
+		int *memory = new int [capacity_];
 		for (size_t i = 0; i < capacity_; i++)
 		{
 			memory[i] = 0;
