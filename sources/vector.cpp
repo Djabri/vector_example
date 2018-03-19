@@ -100,20 +100,20 @@ void vector_t::pop_back()
 {
 	if (size_ == 0)
 	{
-		return *this;
+		
 	}
 	
-	if (size_ < ( capacity_ / 4 ))
+	if (size_ <= ( capacity_ / 4 ))
 	{
 		capacity_ = capacity_ / 2;
-		
-		int * elements = new int [capacity_];
+		size--;
+		int * temp_elements = new int [capacity_];
 		for (int i = 0; i < size_; i++)
-			elements[i] = elements_[i];
+			temp_elements[i] = elements_[i];
 		
 		delete[]elements_;
 		
-		elements_ = elements;
+		elements_ = temp_elements;
 	}
 }
 
