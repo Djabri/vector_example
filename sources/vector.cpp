@@ -82,15 +82,18 @@ void vector_t::push_back(int value)
 		int *temp_elements = new int [capacity_];
 		for (size_t i = 0; i < capacity_; i++)
 		{
-			temp_elements[i] = 0;
+			temp_elements[i] = elements_[i];
 		}
-		for (size_t i = 0; i < capacity_; i++)
+		
+		delete[]elements;
+		
+		for (size_t i = 0; i < size_; i++)
 		{
-			elements_[i] = value;
+			elements_[i] = temp_elements[i];	
 		}
 	}
 	
-	temp_elements[size_] = capacity_;
+	elements_[size_++] = value;
 }
 
 void vector_t::pop_back()
