@@ -38,14 +38,17 @@ vector_t & vector_t::operator =(vector_t const & other)
 
 bool vector_t::operator ==(vector_t const & other) const
 {
-	for (size_t i = 0; i < other.capacity_; i++)
+	if (size_ == other.size_)
 	{
-		if (elements_[i] == other.elements_[i])
+		for (size_t i = 0; i < other.capacity_; i++)
 		{
-			return false;
+			if (elements_[i] == other.elements_[i])
+			{
+				return false;
+				break;
+			}
 		}
 	}
-	
 	return true;
 }
 
