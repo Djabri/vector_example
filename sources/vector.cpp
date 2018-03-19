@@ -112,7 +112,6 @@ void vector_t::pop_back()
 		
 		elements_ = elements;
 	}
-	return *this;
 }
 
 int & vector_t::operator [](std::size_t index)
