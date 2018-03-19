@@ -48,8 +48,12 @@ bool vector_t::operator ==(vector_t const & other) const
 				break;
 			}
 		}
+		return true;
 	}
-	return true;
+	else
+	{
+		return false;
+	}
 }
 
 vector_t::~vector_t()
