@@ -15,7 +15,7 @@ vector_t::vector_t(vector_t const & other)
         	elements_[i] = other.elements_[i];
     	}
     	capacity_ = other.capacity_;
-	size_ = other.size_
+	size_ = other.size_;
 }
 
 vector_t & vector_t::operator =(vector_t const & other)
