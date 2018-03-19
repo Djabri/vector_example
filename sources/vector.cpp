@@ -40,7 +40,7 @@ bool vector_t::operator ==(vector_t const & other) const
 {
 	if (size_ == other.size_)
 	{
-		for (size_t i = 0; i < other.capacity_; i++)
+		for (size_t i = 0; i < other.size_; i++)
 		{
 			if (elements_[i] != other.elements_[i])
 			{
