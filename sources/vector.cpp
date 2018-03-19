@@ -38,7 +38,7 @@ vector_t & vector_t::operator =(vector_t const & other)
 
 bool vector_t::operator ==(vector_t const & other) const
 {
-	bool flag = (size_ == other.size_)
+	bool flag = (size_ == other.size_);
 	if (flag)
 	{
 		for (size_t i = 0; i < other.capacity_; i++)
