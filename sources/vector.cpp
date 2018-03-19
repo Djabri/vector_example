@@ -23,6 +23,7 @@ vector_t & vector_t::operator =(vector_t const & other)
 {
 	if (this != &other)
 	{
+		if(elements_ != nullptr)
 		delete[]elements_;
 		elements_ = new int [other.capacity_];
 
