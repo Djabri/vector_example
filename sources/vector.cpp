@@ -24,7 +24,7 @@ vector_t & vector_t::operator =(vector_t const & other)
 	if (this != &other)
 	{
 		if(elements_ != nullptr)
-		delete[]elements_;
+			delete[]elements_;
 		elements_ = new int [other.capacity_];
 
 		for (size_t i = 0; i < other.capacity_; i++)
