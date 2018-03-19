@@ -85,7 +85,7 @@ void vector_t::push_back(int value)
 			temp_elements[i] = elements_[i];
 		}
 		
-		delete[]elements;
+		delete[]elements_;
 		
 		for (size_t i = 0; i < size_; i++)
 		{
@@ -100,13 +100,13 @@ void vector_t::pop_back()
 {
 	if (size_ == 0)
 	{
-		
+		std::cout << "Error!\n Vector is empty\n";
 	}
 	
 	if (size_ <= ( capacity_ / 4 ))
 	{
 		capacity_ = capacity_ / 2;
-		size--;
+		size_--;
 		int * temp_elements = new int [capacity_];
 		for (int i = 0; i < size_; i++)
 			temp_elements[i] = elements_[i];
