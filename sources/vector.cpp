@@ -12,8 +12,8 @@ vector_t::vector_t(vector_t const & other)
 	capacity_ = other.capacity_;
 	size_ = other.size_;
 	
-	elements_ = new int [capacity_];
-	for (size_t i = 0; i < capacity_; i++)
+	elements_ = new int [size_];
+	for (size_t i = 0; i < size_; i++)
 	{
 		elements_[i] = other.elements_[i];
 	}
