@@ -98,7 +98,7 @@ void vector_t::pop_back()
 {
 	if (size_)
 	{
-		size--;
+		size_--;
 		if (size_ <= ( capacity_ / 4 ))
 		{
 			capacity_ = capacity_ / 2;
