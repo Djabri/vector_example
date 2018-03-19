@@ -79,10 +79,10 @@ void vector_t::push_back(int value)
 	if ( size_ == capacity_)
 	{
 		capacity_ *= 2;
-		int *memory = new int [capacity_];
+		int *temp_elements = new int [capacity_];
 		for (size_t i = 0; i < capacity_; i++)
 		{
-			memory[i] = 0;
+			temp_elements[i] = 0;
 		}
 		for (size_t i = 0; i < capacity_; i++)
 		{
@@ -90,9 +90,7 @@ void vector_t::push_back(int value)
 		}
 	}
 	
-	memory[size_] = capacity_;
-	
-		
+	temp_elements[size_] = capacity_;
 }
 
 void vector_t::pop_back()
@@ -114,6 +112,7 @@ void vector_t::pop_back()
 		
 		elements_ = elements;
 	}
+	return *this;
 }
 
 int & vector_t::operator [](std::size_t index)
