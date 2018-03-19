@@ -38,19 +38,18 @@ vector_t & vector_t::operator =(vector_t const & other)
 
 bool vector_t::operator ==(vector_t const & other) const
 {
-	bool flag = (size_ == other.size_);
-	if (flag)
+	if (size_ == other.size_)
 	{
 		for (size_t i = 0; i < other.capacity_; i++)
 		{
-			if (elements_[i] == other.elements_[i])
+			if (elements_[i] != other.elements_[i])
 			{
-				flag = false;
+				return false;
 				break;
 			}
 		}
 	}
-	return flag;
+	return true;
 }
 
 vector_t::~vector_t()
