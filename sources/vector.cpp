@@ -96,22 +96,25 @@ void vector_t::push_back(int value)
 
 void vector_t::pop_back()
 {
-	if (size_ == 0)
+	if (size_)
+	{
+		size--;
+		if (size_ <= ( capacity_ / 4 ))
+		{
+			capacity_ = capacity_ / 2;
+			int * temp_elements = new int [capacity_];
+			for (size_t i = 0; i < size_; i++)
+			{
+				temp_elements[i] = elements_[i];
+			}
+			
+			delete[]elements_;
+
+			elements_ = temp_elements;
+		}
+	}else
 	{
 		std::cout << "Error!\n Vector is empty\n";
-	}
-	
-	if (size_ <= ( capacity_ / 4 ))
-	{
-		capacity_ = capacity_ / 2;
-		size_--;
-		int * temp_elements = new int [capacity_];
-		for (size_t i = 0; i < size_; i++)
-			temp_elements[i] = elements_[i];
-		
-		delete[]elements_;
-		
-		elements_ = temp_elements;
 	}
 }
 
