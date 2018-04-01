@@ -90,7 +90,7 @@ T vector_t<T>::at(std::size_t index)
 {
 	if (index >= size_)
 	{
-		throw "Error!\n Array going beyond the bounds of the array\n"
+		throw "Error!\n Array going beyond the bounds of the array\n";
 	}
 	
 	return elements_[index];
