@@ -122,7 +122,7 @@ std::size_t vector_t<T>::size() const
     return size_;
 }
 
-template <typenmae T>
+template <typename T>
 std::size_t vector_t<T>::capacity() const
 {
     return capacity_;
