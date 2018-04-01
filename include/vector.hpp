@@ -22,8 +22,8 @@ public:
 	void push_back(int value);
 	void pop_back();
 	
-	int & operator [](std::size_t index);
-	int operator [](std::size_t index) const;
+	T & operator [](std::size_t index);
+	T operator [](std::size_t index) const;
 
 	bool operator ==(vector_t const & other) const;
 };
@@ -150,7 +150,7 @@ void vector_t<T>::push_back(int value)
 	else
 	{
 		capacity_ = 1;
-		elements_ = new int [capacity_];
+		elements_ = new T [capacity_];
 	}
 	
 	elements_[size_++] = value;
