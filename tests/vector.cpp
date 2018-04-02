@@ -176,8 +176,8 @@ TEST_CASE("testing exceptions, REQIURE_NOTHROW")
     
     unsigned int a;
     
-    REQUIRE_NOTHROW ( a = vector.at(84) );
+    REQUIRE_NOTHROW ( a = vector.at(1) );
     REQUIRE_NOTHROW ( a = vector.at(2) );
-    REQUIRE_THROWS ( a = vector.at(-32) );
+    REQUIRE_THROWS ( a = vector.at(32) );
     REQUIRE_THROWS ( a = vector.at(999) );
 }
