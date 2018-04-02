@@ -31,7 +31,7 @@ TEST_CASE("assigning vector")
 	REQUIRE( vector1 == vector2 );
 }
 
-TEST_CASE("equaling vector")
+TEST_CASE("equaling vector, oper[==]")
 {
 	vector_t<int> vector1;
 	vector_t<int> vector2;
@@ -45,7 +45,7 @@ TEST_CASE("equaling vector")
 	REQUIRE( vector1 != vector2 );
 }
 
-TEST_CASE("indexing vector")
+TEST_CASE("indexing vector, oper[]")
 {
 	vector_t<int> vector;
 
@@ -57,7 +57,7 @@ TEST_CASE("indexing vector")
 	REQUIRE( copy[0] == 1 );
 }
 
-TEST_CASE("pushing elements")
+TEST_CASE("pushing elements, oper+")
 {
 	vector_t<int> vector;
 
@@ -82,7 +82,7 @@ TEST_CASE("pushing elements")
 	REQUIRE( vector.capacity() == 8 );
 }
 
-TEST_CASE("poping elements")
+TEST_CASE("poping elements, delete")
 {
 	vector_t<int> vector;
 
@@ -94,26 +94,32 @@ TEST_CASE("poping elements")
 	vector.push_back(6);
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 5 );
 	REQUIRE( vector.capacity() == 8 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 4 );
 	REQUIRE( vector.capacity() == 8 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 3 );
 	REQUIRE( vector.capacity() == 8 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 2 );
 	REQUIRE( vector.capacity() == 4 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 1 );
 	REQUIRE( vector.capacity() == 2 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 0 );
 	REQUIRE( vector.capacity() == 1 );
 }
@@ -130,33 +136,39 @@ TEST_CASE("popping double vector")
 	vector.push_back(6);
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 5 );
 	REQUIRE( vector.capacity() == 8 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 4 );
 	REQUIRE( vector.capacity() == 8 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 3 );
 	REQUIRE( vector.capacity() == 8 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 2 );
 	REQUIRE( vector.capacity() == 4 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 1 );
 	REQUIRE( vector.capacity() == 2 );
 
 	vector.pop_back();
+	
 	REQUIRE( vector.size() == 0 );
 	REQUIRE( vector.capacity() == 1 );
 }
 
 TEST_CASE("testing exceptions")
 {
-	    vector_t<int> vector;
+    vector_t<int> vector;
     
     vector.push_back(1);
     vector.push_back(2);
@@ -164,8 +176,8 @@ TEST_CASE("testing exceptions")
     
     unsigned int a;
     
-    REQUIRE_NOTHROW ( a = vector.at(1));
+    REQUIRE_NOTHROW ( a = vector.at(84));
     REQUIRE_NOTHROW ( a = vector.at(2));
-    REQUIRE_THROWS ( a = vector.at(50));
-    REQUIRE_THROWS ( a = vector.at(51));
+    REQUIRE_THROWS ( a = vector.at(-32));
+    REQUIRE_THROWS ( a = vector.at(999));
 }
